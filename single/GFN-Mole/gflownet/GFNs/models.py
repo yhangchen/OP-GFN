@@ -39,25 +39,25 @@ class SubTBGFN(BaseTBGFlowNet):
     super().__init__(args, mdp, actor)
     print('Model: SubTBGFN')
     
-    # hid_dim = self.args.sa_hid_dim
-    # n_layers = self.args.sa_n_layers
-    # net = network.make_mlp(
-    #     [self.actor.ft_dim] + \
-    #     [hid_dim] * n_layers + \
-    #     [1]
-    # )
-    # self.logF = network.StateFeaturizeWrap(net, self.actor.featurize)
-    # self.logF.to(args.device)
+    hid_dim = self.args.sa_hid_dim
+    n_layers = self.args.sa_n_layers
+    net = network.make_mlp(
+        [self.actor.ft_dim] + \
+        [hid_dim] * n_layers + \
+        [1]
+    )
+    self.logF = network.StateFeaturizeWrap(net, self.actor.featurize)
+    self.logF.to(args.device)
     
-    # self.clip_grad_norm_params.append(self.logF.parameters())
+    self.clip_grad_norm_params.append(self.logF.parameters())
     
-    # self.optimizer_logF = torch.optim.Adam([
-    #   {
-    #     'params': self.logF.parameters(),
-    #     'lr': args.lr_logF
-    #   }])
+    self.optimizer_logF = torch.optim.Adam([
+      {
+        'params': self.logF.parameters(),
+        'lr': args.lr_logF
+      }])
     
-    # self.optimizers.append(self.optimizer_logF)
+    self.optimizers.append(self.optimizer_logF)
     print("define state flow estimation")
     
   def init_subtb(self):
@@ -164,25 +164,25 @@ class DBGFN(BaseTBGFlowNet):
     super().__init__(args, mdp, actor)
     print('Model: DBGFN')
     
-    # hid_dim = self.args.sa_hid_dim
-    # n_layers = self.args.sa_n_layers
-    # net = network.make_mlp(
-    #     [self.actor.ft_dim] + \
-    #     [hid_dim] * n_layers + \
-    #     [1]
-    # )
-    # self.logF = network.StateFeaturizeWrap(net, self.actor.featurize)
-    # self.logF.to(args.device)
+    hid_dim = self.args.sa_hid_dim
+    n_layers = self.args.sa_n_layers
+    net = network.make_mlp(
+        [self.actor.ft_dim] + \
+        [hid_dim] * n_layers + \
+        [1]
+    )
+    self.logF = network.StateFeaturizeWrap(net, self.actor.featurize)
+    self.logF.to(args.device)
     
-    # self.clip_grad_norm_params.append(self.logF.parameters())
+    self.clip_grad_norm_params.append(self.logF.parameters())
     
-    # self.optimizer_logF = torch.optim.Adam([
-    #   {
-    #     'params': self.logF.parameters(),
-    #     'lr': args.lr_logF
-    #   }])
+    self.optimizer_logF = torch.optim.Adam([
+      {
+        'params': self.logF.parameters(),
+        'lr': args.lr_logF
+      }])
     
-    # self.optimizers.append(self.optimizer_logF)
+    self.optimizers.append(self.optimizer_logF)
     print("define state flow estimation")
     
   def train(self, batch):

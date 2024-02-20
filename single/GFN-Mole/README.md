@@ -21,9 +21,8 @@ We set the parameters for each dataset in the corresponding folder in `./exp`.
 for dataset in bag qm9str sehstr tfbind8 tfbind10 do
 # Baselines
 for model in a2c ppo sql mars tb db subtb maxent sub do
-python runexpwb.py --setting $dataset --model $model --guide uniform  --wandb_project molecule_all --wandb_mode online
-done
+python runexpwb.py --setting $dataset --model $model --guide uniform
 # OP-TB
-python runexpwb.py --setting $dataset --model tb --ordering True --guide uniform  --wandb_project molecule_all --wandb_mode online
+python runexpwb.py --setting $dataset --model tb --ordering True --guide uniform
 done
 ```

@@ -106,9 +106,6 @@ class BaseTBGFlowNet():
   def back_logfs_unique(self, batch):
     return self.logF(batch)
   
-  def back_values_unique(self, batch):
-    return self.policy_back.values_unique(batch)
-
   def back_sample(self, batch):
     """ Non-differentiable; sample a child or parent.
 
@@ -579,7 +576,7 @@ class BaseTBGFlowNet():
     fwd_states, back_states, unroll_idxs = unroll_trajs(trajs)
 
     # states_to_logfs = self.back_logfs_unique(back_states)
-    states_to_logfs = self.back_values_unique(back_states)
+    states_to_logfs = self.back_logfs_unique(back_states)
     states_to_logps = self.back_logps_unique(back_states)
     back_logp_chosen = [s2lp[p] for s2lp, p in zip(states_to_logps, fwd_states)]
     

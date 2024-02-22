@@ -20,8 +20,10 @@ We set the parameters for each dataset in the corresponding folder in `./exp`.
 ```bash
 for dataset in bag qm9str sehstr tfbind8 tfbind10 do
 # Baselines
-for model in a2c ppo sql mars tb db subtb maxent sub do
+for model in a2c ppo sql mars tb db subtb maxent do
 python runexpwb.py --setting $dataset --model $model --guide uniform
+# use substructure guide in GTB
+python runexpwb.py --setting $dataset --model sub --guide substructure
 # OP-TB
 python runexpwb.py --setting $dataset --model tb --ordering True --guide uniform
 done

@@ -19,10 +19,12 @@ conda env create -f environment.yml
 
 ### Citation
 ```bibtex
-@article{chen2023order,
-  title={Order-Preserving GFlowNets},
-  author={Chen, Yihang and Mauch, Lukas},
-  journal={arXiv preprint arXiv:2310.00386},
-  year={2023}
+@inproceedings{
+chen2024orderpreserving,
+title={Order-Preserving {GF}lowNets},
+author={Yihang Chen and Lukas Mauch},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=VXDPXuq4oG}
 }
 ```
